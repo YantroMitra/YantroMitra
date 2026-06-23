@@ -91,9 +91,8 @@
             <section class="relative pt-16 pb-7 overflow-hidden ">
 
                 <div class="absolute inset-0 overflow-hidden rounded-[50px] mt-24">
-                    <iframe
+                    <iframe id="bgVideo"
                         class="absolute top-1/2 left-1/2 min-w-full min-h-full w-[177.77vh] h-[56.25vw] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-                        src="https://www.youtube.com/embed/mItRtwaEZRY?autoplay=1&mute=1&loop=1&playlist=mItRtwaEZRY&controls=0&rel=0"
                         title="Background Video" frameborder="0" allow="autoplay">
                     </iframe>
                 </div>
@@ -642,6 +641,16 @@
             }
         });
     </script>
+
+
+    <script>
+        //  Change ONLY this ID whenever you want a different video foe home first div video
+        const videoID = "mItRtwaEZRY";
+
+        document.getElementById("bgVideo").src =
+            `https://www.youtube.com/embed/${videoID}?autoplay=1&mute=1&loop=1&playlist=${videoID}&controls=0&rel=0`;
+    </script>
+
 
 
 
