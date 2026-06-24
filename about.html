@@ -127,8 +127,7 @@
 
                         <div class="rounded-3xl overflow-hidden shadow-xl">
 
-                            <iframe class="w-full aspect-video" loading="lazy "
-                                src="https://www.youtube.com/embed/yeKyXqbTqN8?si=XTx_Dqdze-5wJz2f" allowfullscreen>
+                            <iframe id="video9" class="w-full aspect-video" loading="lazy " allowfullscreen>
 
                             </iframe>
 
@@ -145,7 +144,6 @@
             </section>
         </div>
         <!-- COMPANY INTRO -->
-
         <section class="py-12 m-4 bg-white shadow-[0_0_10px_rgba(0,0,0,0.9)] rounded-2xl">
 
             <div class="container mx-auto px-6">
@@ -290,7 +288,7 @@
         <!-- WHY YANTROMITRA -->
 
         <section
-            class="py-12 m-4 bg-gradient-to-br from-purple-50 to-yellow-50 shadow-[0_0_10px_rgba(0,0,0,0.9)] rounded-2xl">
+            class="py-12 m-8 bg-gradient-to-br from-purple-50 to-yellow-50 shadow-[0_0_10px_rgba(0,0,0,0.9)] rounded-2xl">
 
             <div class="container mx-auto px-6">
 
@@ -467,6 +465,7 @@
             </div>
 
         </section>
+
 
         <!-- PART 1 ENDS HERE -->
 
@@ -650,7 +649,7 @@
 
                             <p class="text-gray-600 mt-3">
                                 Passionate educator and mentor committed to transforming learning through innovation,
-                                 and community engagement.
+                                and community engagement.
                             </p>
                         </div>
 
@@ -834,6 +833,8 @@
             </div>
 
         </section>
+
+
     </div>
 
 
@@ -847,9 +848,6 @@
 
     <!-- JAVASCRIPT -->
 
-    <script src="assets/js/counters.js"></script>
-
-    <script src="assets/js/testimonials.js"></script>
 
     <script src="assets/js/includes.js"></script>
 
@@ -857,17 +855,54 @@
 
     <script src="assets/js/menu.js"></script>
 
-    <script src="assets/js/slider.js"></script>
-
-    <script src="assets/js/testimonials.js"></script>
-
-    <script src="assets/js/gallery.js"></script>
-
     <script src="assets/js/forms.js"></script>
 
     <script src="assets/js/animations.js"></script>
 
     <script src="assets/js/seo.js"></script>
+
+
+    <script>
+
+        fetch("youtube-links.txt")
+            .then(response => response.text())
+            .then(data => {
+
+                const lines = data.trim().split("\n");
+
+                lines.forEach(line => {
+
+                    const parts = line.split("=");
+
+                    if (parts.length !== 2) return;
+
+                    const key = parts[0].trim();
+                    const value = parts[1].trim();
+
+                    const number = key.replace("link", "");
+
+                    const iframe = document.getElementById("video" + number);
+
+                    if (iframe) {
+
+                        iframe.src = value;
+                        iframe.allow =
+                            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+                    }
+
+                });
+
+            })
+            .catch(error => {
+
+                console.error("Unable to load youtube-links.txt", error);
+
+            });
+
+    </script>
+
 
 </body>
 
