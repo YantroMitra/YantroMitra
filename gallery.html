@@ -24,7 +24,7 @@
 
     <link rel="canonical" href="https://yourdomain.com/gallery.html">
 
-    <link rel="icon" href="assets/images/logo.webp">
+    <link rel="icon" href="assets/images/qlogo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -125,25 +125,21 @@
 
                 </div>
 
-                <!-- All Videos Same Size -->
                 <!-- First Row -->
                 <div class="grid lg:grid-cols-3 gap-10 mt-16">
 
                     <div class="glass-card p-5">
-                        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/h3aFJfYHldc"
-                            loading="lazy" allowfullscreen>
+                        <iframe id="video1" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
                         </iframe>
                     </div>
 
                     <div class="glass-card p-5">
-                        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/AP7wHgvLkdk"
-                            loading="lazy" allowfullscreen>
+                        <iframe id="video2" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
                         </iframe>
                     </div>
 
                     <div class="glass-card p-5">
-                        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/BTNomdBiFHU"
-                            loading="lazy" allowfullscreen>
+                        <iframe id="video3" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
                         </iframe>
                     </div>
 
@@ -153,25 +149,62 @@
                 <div class="grid lg:grid-cols-3 gap-10 mt-16">
 
                     <div class="glass-card p-5">
-                        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/yeKyXqbTqN8?si=XTx_Dqdze-5wJz2f"
-                            loading="lazy" allowfullscreen>
+                        <iframe id="video4" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
                         </iframe>
                     </div>
 
                     <div class="glass-card p-5">
-                        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/kDLcRBFBtUQ"
-                            loading="lazy" allowfullscreen>
+                        <iframe id="video5" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
                         </iframe>
                     </div>
 
                     <div class="glass-card p-5">
-                        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/BTNomdBiFHU?si=TbHSUBDpqPx9Zq2J"
-                            loading="lazy" allowfullscreen>
+                        <iframe id="video6" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
                         </iframe>
                     </div>
 
                 </div>
 
+                <!-- Third Row -->
+                <div class="grid lg:grid-cols-3 gap-10 mt-16">
+
+                    <div class="glass-card p-5">
+                        <iframe id="video10" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="glass-card p-5">
+                        <iframe id="video11" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="glass-card p-5">
+                        <iframe id="video12" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </div>
+
+                <!-- fourth Row -->
+                <div class="grid lg:grid-cols-3 gap-10 mt-16">
+
+                    <div class="glass-card p-5">
+                        <iframe id="video13" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="glass-card p-5">
+                        <iframe id="video14" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <div class="glass-card p-5">
+                        <iframe id="video15" class="w-full aspect-video rounded-xl" loading="lazy" allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </div>
+                
             </div>
 
         </section>
@@ -374,6 +407,48 @@
     </script>
 
     <script src="assets/js/seo.js"></script>
+
+
+    <script>
+
+        fetch("youtube-links.txt")
+            .then(response => response.text())
+            .then(data => {
+
+                const lines = data.trim().split("\n");
+
+                lines.forEach(line => {
+
+                    const parts = line.split("=");
+
+                    if (parts.length !== 2) return;
+
+                    const key = parts[0].trim();
+                    const value = parts[1].trim();
+
+                    const number = key.replace("link", "");
+
+                    const iframe = document.getElementById("video" + number);
+
+                    if (iframe) {
+
+                        iframe.src = value;
+                        iframe.allow =
+                            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+                    }
+
+                });
+
+            })
+            .catch(error => {
+
+                console.error("Unable to load youtube-links.txt", error);
+
+            });
+
+    </script>
 
 
 
