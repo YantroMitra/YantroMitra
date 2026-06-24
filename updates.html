@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Updates</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6D4BC3',
+                        secondary: '#8A63D2',
+                        accent: '#F05A4A',
+                        sun: '#F8C600',
+                        dark: '#1F2937',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="icon" href="assets/images/logo.webp">
+
+
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <div class="pt-36"></div>
+
+    <!-- Page Title -->
+    <!-- <div class="max-w-5xl mx-auto px-6">
+
+        <h1 class="text-4xl font-bold text-center mb-8 text-red-500">
+            Latest Updates
+        </h1>
+
+    </div> -->
+
+    <!-- Document -->
+    <div class="max-w-5xl mx-auto px-6 mb-12">
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+
+            <!-- Document Header -->
+            <div class="bg-red-500 text-white px-8 py-4">
+                <h2 class="text-2xl font-bold">
+                    📄 YantroMitra Updates
+                </h2>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="h-[600px] overflow-y-auto p-8">
+
+                <pre id="updatesContent" class="whitespace-pre-wrap font-sans text-lg leading-8 text-gray-800">
+Loading Updates...
+            </pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // Load updates from updates.txt
+        fetch("updates.txt")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("updatesContent").textContent = data;
+            })
+            .catch(() => {
+                document.getElementById("updatesContent").textContent =
+                    "Unable to load updates.";
+            });
+
+    </script>
+
+    <script src="assets/js/includes.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <script src="assets/js/menu.js"></script>
+
+    <script src="assets/js/animations.js"></script>
+
+    <script src="assets/js/seo.js"></script>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

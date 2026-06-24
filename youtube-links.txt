@@ -1,0 +1,31 @@
+----Gallery page-----
+
+link1=https://www.youtube.com/embed/h3aFJfYHldc
+link2=https://www.youtube.com/embed/AP7wHgvLkdk
+link3=https://www.youtube.com/embed/tKm2s3FOazI
+link4=https://www.youtube.com/embed/yeKyXqbTqN8
+link5=https://www.youtube.com/embed/I2bVEkqXHlk
+link6=https://www.youtube.com/embed/BTNomdBiFHU
+
+link10=https://www.youtube.com/embed/Fr-s2ggrlh0
+link11=https://www.youtube.com/embed/zcsjhBjYCRY
+link12=https://www.youtube.com/embed/Om2CrjJ84b8
+link13=https://www.youtube.com/embed/AN9ViDYJBzI
+link14=https://www.youtube.com/embed/X6utvAkLdAo
+link15=https://www.youtube.com/embed/PX8A5qvIzoA
+
+--------------------
+
+----Home page-----
+
+link7=https://www.youtube.com/embed/BTNomdBiFHU
+link8=https://www.youtube.com/embed/yeKyXqbTqN8
+
+--------------------
+
+----About page-----
+
+link9=https://www.youtube.com/embed/yeKyXqbTqN8
+
+
+--------------------
