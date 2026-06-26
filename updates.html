@@ -45,33 +45,30 @@
 
     <div class="pt-36"></div>
 
-    <!-- Page Title -->
-    <!-- <div class="max-w-5xl mx-auto px-6">
-
-        <h1 class="text-4xl font-bold text-center mb-8 text-red-500">
-            Latest Updates
-        </h1>
-
-    </div> -->
 
     <!-- Document -->
-    <div class="max-w-5xl mx-auto px-6 mb-12">
+    <!-- Updates -->
+    <div class="max-w-5xl mx-auto px-6 mb-16">
 
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <!-- Header -->
+        <div class="bg-primary text-white rounded-t-2xl px-8 py-5 shadow-lg">
 
-            <!-- Document Header -->
-            <div class="bg-red-500 text-white px-8 py-4">
-                <h2 class="text-2xl font-bold">
-                    📄 YantroMitra Updates
-                </h2>
-            </div>
+            <h2 class="text-3xl font-bold">
+                📢 Latest Announcements
+            </h2>
 
-            <!-- Scrollable Content -->
-            <div class="h-[600px] overflow-y-auto p-8">
+            <p class="text-white/80 mt-1">
+                Stay updated with our latest activities, workshops and events.
+            </p>
 
-                <pre id="updatesContent" class="whitespace-pre-wrap font-sans text-lg leading-8 text-gray-800">
-Loading Updates...
-            </pre>
+        </div>
+
+        <!-- Scroll Area -->
+        <div class="bg-white rounded-b-2xl shadow-lg h-[650px] overflow-y-auto p-8">
+
+            <div id="updatesContent" class="space-y-8">
+
+                Loading updates...
 
             </div>
 
@@ -81,15 +78,131 @@ Loading Updates...
 
     <script>
 
-        // Load updates from updates.txt
         fetch("updates.txt")
             .then(response => response.text())
-            .then(data => {
-                document.getElementById("updatesContent").textContent = data;
-            })
-            .catch(() => {
-                document.getElementById("updatesContent").textContent =
-                    "Unable to load updates.";
+            .then(text => {
+
+                const container = document.getElementById("updatesContent");
+
+                container.innerHTML = "";
+
+                // Split updates by ======
+                const updates = text.split("========================================");
+
+                updates.forEach(update => {
+
+                    update = update.trim();
+
+                    if (update === "") return;
+
+                    let date = "";
+                    let title = "";
+                    let description = "";
+
+                    let buttons = [];
+
+                    const lines = update.split("\n");
+
+                    let readingDescription = false;
+
+                    lines.forEach(line => {
+
+                        line = line.trim();
+
+                        if (line.startsWith("Date:")) {
+
+                            date = line.replace("Date:", "").trim();
+                            readingDescription = false;
+
+                        }
+
+                        else if (line.startsWith("Title:")) {
+
+                            title = line.replace("Title:", "").trim();
+                            readingDescription = false;
+
+                        }
+
+                        else if (line.startsWith("Description:")) {
+
+                            readingDescription = true;
+
+                        }
+
+                        else if (line.startsWith("Button:")) {
+
+                            readingDescription = false;
+
+                            const data = line.replace("Button:", "").trim();
+
+                            const parts = data.split("|");
+
+                            if (parts.length === 2) {
+
+                                buttons.push({
+
+                                    text: parts[0].trim(),
+
+                                    link: parts[1].trim()
+
+                                });
+
+                            }
+
+                        }
+
+                        else if (readingDescription && line !== "") {
+
+                            description += line + "<br>";
+
+                        }
+
+                    });
+
+                    let buttonsHTML = "";
+
+                    buttons.forEach(btn => {
+
+                        buttonsHTML += `
+                    <a href="${btn.link}"
+                       target="_blank"
+                       class="inline-block bg-primary hover:bg-secondary text-white px-5 py-2 rounded-lg transition mr-3 mt-3">
+                        ${btn.text}
+                    </a>
+                `;
+
+                    });
+
+                    container.innerHTML += `
+
+                <div class="border rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+
+                    <p class="text-sm text-gray-500 mb-2">
+
+                        📅 ${date}
+
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-primary mb-4">
+
+                        ${title}
+
+                    </h2>
+
+                    <p class="text-gray-700 leading-8">
+
+                        ${description}
+
+                    </p>
+
+                    ${buttonsHTML}
+
+                </div>
+
+            `;
+
+                });
+
             });
 
     </script>
