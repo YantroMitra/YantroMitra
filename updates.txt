@@ -1,30 +1,29 @@
-YantroMitra Latest Updates
-==========================
+========================================
+Date: 26 June 2026
 
-Date: 16 June 2026
+Title: National Robotics Championship
 
-STEAM Education
----------------
-New STEAM education programs and learning activities have been introduced for students.
+Description:
+Our students qualified for the National Robotics Championship after an outstanding performance.
 
+Button: Watch Video | https://www.youtube.com/watch?v=AP7wHgvLkdk
 
-Date: 15 June 2026
+========================================
+Date: 24 June 2026
 
-Robotics
----------
-Robotics workshops and project-based learning sessions are now available.
+Title: AI Summer Workshop
 
+Description:
+Admissions are now open for the AI Summer Workshop.
 
-Date: 14 June 2026
+Button: Contact Us | https://yantromitra.in/contact.html
 
-Artificial Intelligence
------------------------
-AI learning modules and hands-on activities have been added for students.
+========================================
+Date: 20 June 2026
 
+Title: STEAM Education
 
-Date: 13 June 2026
+Description:
+Download our latest STEAM Education brochure.
 
-Internet of Things
-------------------
-New IoT projects and practical sessions have been introduced.
-
+Button: Watch Video | https://www.youtube.com/watch?v=yeKyXqbTqN8
